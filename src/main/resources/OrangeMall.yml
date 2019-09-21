@@ -1,0 +1,40 @@
+
+spring: 
+  datasource: 
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:  jdbc:mysql:///orange_mall?serverTimezone=UTC  //当前时间+8时
+    username: root
+    password: 123123
+
+  jackson:
+    date-format: yyyy-MM-dd HH:mm
+    time-zone: GMT+8
+
+
+  resources:
+    static-locations: classpath:/templates/,classpath:/META-INF/resources/,classpath:/resources/,classpath:/static/,classpath:/public/
+
+  thymeleaf:
+    encoding: UTF-8
+    #开发时关闭缓存,不然没法看到实时页面
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+
+mybatis:
+  type-aliases-package: com.qzq.pojo
+  configuration-properties: 
+    auto-mapping-behavior: full
+    use-generated-keys: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  pageSizeZero: true
+
+server:
+  servlet:
+    context-path: /orange
